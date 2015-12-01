@@ -19,9 +19,11 @@ public class TittleFragment extends ListFragment {
     static final int SHOW_STAT_ANIM = 2;
     static final int SHOW_TRANSITION = 3;
     static final int SHOW_TRANSITION_SHARE = 4;
+    static final int SHOW_ROTATE = 5;
+    static final int SHOW_TEST = 6;
     int mIndex = 0;
 
-    static String[] sTittles ={"Ripple","Reveal","State Anim","Transition","Share Transition"};
+    static String[] sTittles ={"Ripple","Reveal","State Anim","Transition","Share Transition","Rotating","test"};
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -119,6 +121,37 @@ public class TittleFragment extends ListFragment {
                     startActivity(intent,
                             ActivityOptions.makeSceneTransitionAnimation(getActivity(),shareview,"robot").toBundle()
                     );
+                    break;
+                case SHOW_ROTATE:
+                    getActivity().findViewById(R.id.frag_content).setVisibility(View.VISIBLE);
+                    ripple = getActivity().findViewById(R.id.ripple);
+                    if(ripple!=null){
+                        ripple.setVisibility(View.INVISIBLE);
+                    }
+
+                    details = new RotatingFragment();
+                    // Execute a transaction, replacing any existing fragment
+                    // with this one inside the frame.
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.frag_content, details)
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                            .commit();
+                    break;
+                case SHOW_TEST:
+                    getActivity().findViewById(R.id.frag_content).setVisibility(View.VISIBLE);
+                    ripple = getActivity().findViewById(R.id.ripple);
+                    if(ripple!=null){
+                        ripple.setVisibility(View.INVISIBLE);
+                    }
+
+                    details = new TestFragment();
+
+                    // Execute a transaction, replacing any existing fragment
+                    // with this one inside the frame.
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.frag_content, details)
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                            .commit();
                     break;
             }
         }
