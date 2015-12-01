@@ -16,11 +16,12 @@ import android.widget.ListView;
 public class TittleFragment extends ListFragment {
     static final int SHOW_RIPPLE = 0;
     static final int SHOW_REVEAL = 1;
-    static final int SHOW_TRANSITION = 2;
-    static final int SHOW_TRANSITION_SHARE = 3;
+    static final int SHOW_STAT_ANIM = 2;
+    static final int SHOW_TRANSITION = 3;
+    static final int SHOW_TRANSITION_SHARE = 4;
     int mIndex = 0;
 
-    static String[] sTittles ={"Ripple","Reveal","Transition","Share Transition"};
+    static String[] sTittles ={"Ripple","Reveal","State Anim","Transition","Share Transition"};
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -30,7 +31,7 @@ public class TittleFragment extends ListFragment {
                 R.layout.simple_list_item_checkable,
                 android.R.id.text1, sTittles));
 
-        ChangeFragment(SHOW_REVEAL);
+        ChangeFragment(SHOW_RIPPLE);
     }
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -74,6 +75,22 @@ public class TittleFragment extends ListFragment {
                     }
 
                     details = new RevealFragment();
+
+                    // Execute a transaction, replacing any existing fragment
+                    // with this one inside the frame.
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.frag_content, details)
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                            .commit();
+                    break;
+                case SHOW_STAT_ANIM:
+                    getActivity().findViewById(R.id.frag_content).setVisibility(View.VISIBLE);
+                    ripple = getActivity().findViewById(R.id.ripple);
+                    if(ripple!=null){
+                        ripple.setVisibility(View.INVISIBLE);
+                    }
+
+                    details = new StatAnimFragment();
 
                     // Execute a transaction, replacing any existing fragment
                     // with this one inside the frame.

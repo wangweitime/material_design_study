@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="5dp"
+    android:insetTop="5dp"
+    android:insetRight="5dp"
+    android:insetBottom="5dp">
+    <selector >
+        <!--
+        <item android:state_hovered="true" >
+            <shape android:shape="rectangle"
+                android:tint="@android:color/holo_blue_dark">
+                <corners android:radius="4dp" />
+                <solid android:color="@android:color/white" />
+                <padding android:left="2dp"
+                    android:top="2dp"
+                    android:right="2dp"
+                    android:bottom="2dp" />
+            </shape> />
+        </item>
+-->
+        <!-- Non focused states -->
+        <item android:state_focused="false" android:state_selected="false" android:state_pressed="false">
+            <shape android:shape="rectangle"
+                android:tint="#ffeeeeee">
+                <corners android:radius="4dp" />
+                <solid android:color="@android:color/white" />
+                <padding android:left="2dp"
+                    android:top="2dp"
+                    android:right="2dp"
+                    android:bottom="2dp" />
+            </shape>
+        </item>
+
+
+        <item android:state_focused="true"  android:state_pressed="false" >
+            <shape android:shape="rectangle"
+                android:tint="?attr/colorButtonNormal">
+                <corners android:radius="4dp" />
+                <solid android:color="@android:color/white" />
+                <padding android:left="2dp"
+                    android:top="2dp"
+                    android:right="2dp"
+                    android:bottom="2dp" />
+            </shape> />
+        </item>
+
+
+        <!-- Pressed -->
+        <item android:state_pressed="true" >
+            <shape android:shape="rectangle"
+                android:tint="@android:color/holo_blue_light">
+                <corners android:radius="4dp" />
+                <solid android:color="@android:color/white" />
+                <padding android:left="2dp"
+                    android:top="2dp"
+                    android:right="2dp"
+                    android:bottom="2dp" />
+            </shape> />
+        </item>
+
+
+    </selector>
+</inset>
