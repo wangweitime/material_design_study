@@ -116,7 +116,7 @@
             android:paddingLeft="5dip"
             android:paddingRight="5dip"
             android:textStyle="bold"
-            android:text="X"
+            android:text="rotationX"
             />
         <SeekBar
             android:orientation="horizontal"
@@ -131,7 +131,7 @@
             android:paddingLeft="15dip"
             android:paddingRight="5dip"
             android:textStyle="bold"
-            android:text="Y"
+            android:text="rotationY"
             />
         <SeekBar
             android:orientation="horizontal"
@@ -146,7 +146,7 @@
             android:paddingLeft="15dip"
             android:paddingRight="5dip"
             android:textStyle="bold"
-            android:text="Z"
+            android:text="rotationZ"
             />
         <SeekBar
             android:orientation="horizontal"
@@ -208,6 +208,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rotation"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:splitMotionEvents="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:textStyle="bold"
+            android:text="Z"
+            />
+        <SeekBar
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/translationZ"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:textStyle="bold"
+            android:text="Elevation"
+            />
+        <SeekBar
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/elevation"
             />
     </LinearLayout>
 </LinearLayout>

@@ -188,6 +188,40 @@ public class RotatingFragment extends Fragment {
             }
         });
 
+        seekBar = (SeekBar) view.findViewById(R.id.translationZ);
+        seekBar.setMax(100);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                // prevent seeking on app creation
+                rotatingButton.setZ((float) progress);
+            }
+        });
+
+        seekBar = (SeekBar) view.findViewById(R.id.elevation);
+        seekBar.setMax(100);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                // prevent seeking on app creation
+                rotatingButton.setElevation((float) progress);
+            }
+        });
+
         return view;
     }
 }
